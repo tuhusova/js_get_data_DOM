@@ -12,15 +12,9 @@ const totalPopulation = populations.reduce((acc, curr) => acc + curr, 0);
 const averagePopulation = totalPopulation / populations.length;
 
 const totalPopulationElement = document.querySelector('.total-population');
-const averagePopulationElement = document.querySelector('.average-population');
+const avPopulationElement = document.querySelector('.average-population');
 
 // Прямо вставляем числа с разделителями тысяч, используя toLocaleString()
 totalPopulationElement.innerText = totalPopulation.toLocaleString();
 
-const roundedAverage = Math.round(averagePopulation);
-
-averagePopulationElement.innerText = addThousandSeparators(roundedAverage);
-
-function addThousandSeparators(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
+avPopulationElement.innerText = Math.round(averagePopulation).toLocaleString();
